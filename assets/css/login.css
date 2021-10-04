@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#title{
+    font-family: sans-serif;
+    color: white;
+    margin-top: 3%;
+
+}
+fieldset{
+    Width: 600px;
+    Height: 400px;
+    border-radius: 30px;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #3AAFA9;  
+    font-family: sans-serif;
+    color: white;
+    text-align:center;   
+}
+ body{
+    background-color: #17252A;
+    background-image: url("../../views/img/logo.png");
+    background-size: 100% 113px;
+    background-repeat: no-repeat;
+
+}
+input{
+    height: 30px;
+    width: 300px;
+}
+input , textarea , button , select{
+    border-radius: 10px;
+}
+.field{
+    margin-bottom: 1em; 
+    text-align:center;
+}
+.field label{
+    color: white;
+    display: block;
+ 
+}
+.field input:focus, .field textarea:focus , .field select:focus{
+    background-color: white;
+}
+.button {
+    font-size: 1em;
+    background: #17252A;
+    color: white;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    height: 40px;
+    width: 100px;
+}
+.button:hover{
+    background-color: darkgray;
+}

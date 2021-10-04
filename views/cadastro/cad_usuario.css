@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #17252A;
+    background-image: url("../logo.png"), url("../logo_usuario.jpg");
+    background-size: 100vw 113px, 410px 262px;
+    background-position: 100% 0px, 80px 250px;
+    background-repeat: no-repeat;
+
+}
+.menu{
+    margin-top: 113px;
+    position: absolute;
+}
+.menu ul{
+    padding: 0;
+}
+.menu ul li{
+    color: white;
+    float:left;
+    font-size: 20px;
+    width: 33.33vw;
+    height: 30px;
+    display: inline-block;   
+    text-align: center;
+    line-height: 30px;
+    background-color: #2b7a78;
+    position: relative;
+    
+}
+.menu ul li:hover{
+    background-color: #3AAF;
+    color: black;
+    transition: background .3s;
+}
+table{
+    width: 575px;
+    line-height: 30px;
+    margin-top: 40vh;
+    position: absolute;
+    left: 650px;
+    background-color: white;
+ 
+}
+caption{
+    font-size: 20px;
+    color: white;
+}
+.title{
+    font-size: 20px;
+    background-color: #17252A;
+    color: white;
+}
+.tab tbody{
+    font-size: 20px;
+    text-align: center;
+}
+.tab tbody tr:hover{
+    background-color: #3AAF;
+    transition: background .3s;
+}
+.button{
+    font-size: 1em;
+    background: #2b7a78;
+    color: white;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+.button:hover{
+    background-color: darkgray;
+}

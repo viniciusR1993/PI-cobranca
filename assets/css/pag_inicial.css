@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #17252A;
+    background-image: url("../logo.png");
+    background-size: 100vw 113px;
+    background-repeat: no-repeat;
+
+}
+.menu{
+    margin-top: 113px;
+    position: absolute;
+}
+.menu ul{
+    padding: 0;
+}
+.menu ul ul{
+    display: none;    
+}
+.menu ul ul ul{
+    top: 0px;
+    margin-left: 19.85vw;
+    position: absolute;
+}
+.menu ul li{
+    color: white;
+    float:left;
+    font-size: 20px;
+    width: 19.75vw;
+    height: 30px;
+    display: inline-block;   
+    text-align: center;
+    line-height: 30px;
+    background-color: #2b7a78;
+    position: relative;
+    
+}
+.menu ul li ul li{
+    background-color: #1ba8a4;
+}
+.menu ul li:hover > ul{
+    display: block;
+}
+.menu ul li:hover{
+    background-color: #c2efe7;
+    transition: background .3s;
+}
+.menu ul li ul li:hover{
+    color: black;
+}
+.menu .cad:hover, .sair:hover{
+    color: black;
+}
+.exe:hover{
+    color: indigo;
+}
+.con:hover{
+    color: darkorange;
+}
+.conf:hover{
+    color: purple;
+}
+.con .ta:hover{
+    color: green;
+}
+.con .tl:hover{
+    color: blue;
+}
+.con .tv:hover{
+    color: red;
+}
+img{
+    width: 575px;
+    height: 339px;  
+}
