@@ -84,14 +84,14 @@ func EnterUser(w http.ResponseWriter, r *http.Request) {
 	// fmt.Println(string(retorno))
 
 	if err != nil {
-		json.NewEncoder(w).Encode("Erro na verificação da senha")
+		json.NewEncoder(w).Encode(2)
 		return
 	}
 
 	//Criando Token
 	token, err := autentication.CreateToken(uint64(v.Id_user))
 	if err != nil {
-		json.NewEncoder(w).Encode("Erro ao criar o token")
+		json.NewEncoder(w).Encode(2)
 		return
 	}
 	var dataAutentication models.DataAutentication
@@ -101,12 +101,10 @@ func EnterUser(w http.ResponseWriter, r *http.Request) {
 
 	//Gravando tokie no Cookie
 	http.SetCookie(w, &http.Cookie{
-		Name:  "fatec.Autentication.Cookie",
-		Value: dataAutentication.Token,
+		Name:  "Authorization",
+		Value: token,
 	})
 
 	w.Header().Set("Authorization", token)
 	json.NewEncoder(w).Encode(dataAutentication)
-
-	// json.NewEncoder(w).Encode(2)
 }

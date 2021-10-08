@@ -1,6 +1,8 @@
 package securit
 
-import "golang.org/x/crypto/bcrypt"
+import (
+	"golang.org/x/crypto/bcrypt"
+)
 
 //Hash receber a senha string e convert em um hash de bytes.
 func Hash(password string) ([]byte, error) {

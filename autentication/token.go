@@ -16,7 +16,7 @@ import (
 func CreateToken(accountID uint64) (string, error) {
 	permissoes := jwt.MapClaims{}
 	permissoes["authorized"] = true
-	permissoes["exp"] = time.Now().Add(time.Minute * 1).Unix()
+	permissoes["exp"] = time.Now().Add(time.Minute * 10).Unix()
 	permissoes["accountID"] = accountID
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, permissoes)
@@ -36,7 +36,6 @@ func ValidarToken(r *http.Request) error {
 	if _, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
 		return nil
 	}
-
 	return errors.New("Token inválido")
 }
 
@@ -60,12 +59,17 @@ func ExtrairAccountID(r *http.Request) (uint64, error) {
 }
 
 func extrairToken(r *http.Request) string {
-	token := r.Header.Get("Authorization")
-
-	if len(strings.Split(token, " ")) == 2 {
-		return strings.Split(token, " ")[1]
+	//token := r.Header.Get("Authorization")
+	token, err := r.Cookie("Authorization")
+	tokenStr := strings.TrimSpace(strings.Split(token.String(), "=")[1])
+	if err != nil {
+		return ""
 	}
-	return ""
+
+	// if len(strings.Split(token, " ")) == 2 {
+	// 	return strings.Split(token, " ")[1]
+	// }
+	return tokenStr
 }
 
 func retornarChaveVerificacao(token *jwt.Token) (interface{}, error) {
