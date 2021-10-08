@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../cadastro/cad_cliente.css" media="">
+    <link rel="stylesheet" type="text/css" href="../../PI-cobranca/assets/css/cad_usuario.css" media="">
     <title>Bem Vindo a SGR</title>
 </head>
 <body>
@@ -13,11 +13,11 @@
 
     <nav class="menu">
         <ul>
-            <li class="novo" onclick="location.href='formulário de cadastro de Clientes'">Novo Cliente
+            <li class="novo" onclick="location.href='../../PI-cobranca/views/form_usuario.html'">Novo Usuário
             </li> 
-            <li class="voltar" onclick="location.href='../pag_inicial/pag_inicial.html'">Voltar
+            <li class="voltar" onclick="location.href='../../PI-cobranca/views/pag_inicial.html'">Voltar
             </li>   
-            <li class="sair" onclick="location.href='../login/login.html'">Sair             
+            <li class="sair" onclick="location.href='../../PI-cobranca/views/index.html'">Sair             
             </li>   
         </ul>
 
@@ -25,12 +25,12 @@
 
     <!-- Tabela -->
         <table class="tab" border="1">
-            <caption>Tabela de Clientes</caption>
+            <caption>Tabela de Usuários</caption>
             <thead>
                 <tr class="title">
                     <th>Id</th>
-                    <th>CNPJ/CPF</th>
                     <th>Nome</th>
+                    <th>Cargo</th>
                     <th>Status</th>
                     <th>Editar</th>
                 </tr>
@@ -39,23 +39,23 @@
             <tbody>
             <tr>
                 <td>101</td>
-                <td>12345678900</td>
-                <td>Pedro Silva Me</td>
+                <td>Teste</td>
+                <td>Gerente</td>
                 <td>ATIVO</td>
                 <td><button class="button" >Editar</button></td>
 
             </tr>
             <tr>
                 <td>222</td>
-                <td>55566677788</td>
-                <td>Luis Camargo</td>
+                <td>João</td>
+                <td>Técnico em Informática</td>
                 <td>ATIVO</td>
                 <td><button class="button" >Editar</button></td>
             </tr>
             <tr>
                 <td>500</td>
-                <td>43456722289</td>
-                <td>Fatec Ltda</td>
+                <td>Marcelo</td>
+                <td>Auxiliar Administrativo</td>
                 <td>INATIVO</td>
                 <td><button class="button" >Editar</button></td>
             </tr>

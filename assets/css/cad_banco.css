@@ -4,7 +4,7 @@
 }
 body{
     background-color: #17252A;
-    background-image: url("../logo.png"), url("../logo_banco.jpg");
+    background-image: url("../../views/img/logo.png"), url("../../views/img/logo_banco.jpg");
     background-size: 100vw 113px, 410px 262px;
     background-position: 100% 0px, 80px 250px;
     background-repeat: no-repeat;
