@@ -44,8 +44,19 @@ func InsertTransaction(w http.ResponseWriter, r *http.Request) {
 		fmt.Print(err)
 	}
 
-	models.NewTransaction(transactions)
-	json.NewEncoder(w).Encode(0)
+	ret := models.NewTransaction(transactions)
+	json.NewEncoder(w).Encode(ret)
+}
+
+func BaixaTransaction(w http.ResponseWriter, r *http.Request) {
+	var transactions models.Transaction
+	body, _ := ioutil.ReadAll(r.Body)
+	if err := json.Unmarshal(body, &transactions); err != nil {
+		fmt.Print(err)
+	}
+
+	ret := models.BaixaTransaction(transactions)
+	json.NewEncoder(w).Encode(ret)
 }
 
 func DeleteTransaction(w http.ResponseWriter, r *http.Request) {

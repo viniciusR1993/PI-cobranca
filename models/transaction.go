@@ -9,10 +9,15 @@ import (
 
 //Struct criado para refletir a tabela do BD
 type Transaction struct {
-	Id_transaction int
-	Maturity_date  string
-	Issue_date     string
-	Invoice        string
+	Id_transaction      int
+	Maturity_date       string
+	Issue_date          string
+	Settlement_date     string
+	Invoice             string
+	Fk_file_id_file     int
+	Fk_bank_id_bank     int
+	Fk_client_id_client int
+	Value               float32
 }
 
 func AllTransaction() map[int]Transaction {
@@ -51,16 +56,23 @@ func AllTransaction() map[int]Transaction {
 	return mapTransaction
 }
 
-func NewTransaction(transaction Transaction) {
+func NewTransaction(transaction Transaction) int {
 	db := db.ConectBD()
-
-	insertDataTransaction, err := db.Prepare("insert into Transaction(maturity_date, invoice, issue_date) values($1, $2,$3)")
+	insertDataTransaction, err := db.Prepare("insert into Transaction (maturity_date, invoice, issue_date,fk_bank_id_bank, fk_client_id_client, fk_file_id_file,value) values($1,$2,$3,$4,$5,$6,$7)")
 	if err != nil {
 		panic(err.Error())
+		return 1
 	}
 
-	insertDataTransaction.Exec(transaction.Maturity_date, transaction.Invoice, transaction.Issue_date)
+	insertDataTransaction.Exec(transaction.Maturity_date,
+		transaction.Invoice,
+		transaction.Issue_date,
+		transaction.Fk_bank_id_bank,
+		transaction.Fk_client_id_client,
+		transaction.Fk_file_id_file,
+		transaction.Value)
 	defer db.Close()
+	return 0
 }
 
 func DeleteTransaction(transaction Transaction) int {
@@ -123,6 +135,20 @@ func UpdateTransaction(transaction Transaction) int {
 	}
 
 	UpdateBanks.Exec(transaction.Maturity_date, transaction.Invoice, transaction.Issue_date, transaction.Id_transaction)
+	defer db.Close()
+	return 0
+}
+
+func BaixaTransaction(transaction Transaction) int {
+	db := db.ConectBD()
+
+	UpdateBanks, err := db.Prepare("update Transaction set settlement_date = $1 where id_transaction=$2")
+	if err != nil {
+		fmt.Println("Error in updating the bank table: ", err)
+		return 1
+	}
+
+	UpdateBanks.Exec(transaction.Settlement_date, transaction.Id_transaction)
 	defer db.Close()
 	return 0
 }
