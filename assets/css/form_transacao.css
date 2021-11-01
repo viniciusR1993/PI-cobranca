@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.title{
+    font-family: sans-serif;
+    margin-top: 5%;
+    text-align: center;
+
+}
+fieldset{
+    width: 60vw;
+    height: 90vh;
+    border: none;
+}
+ body{
+    background-image: url("../../views/img/form_transacao.jpg");
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    color: white;
+
+}
+input , textarea , button , select{
+    border-radius: 10px;
+}
+.field label, .radio label{
+    margin-left: 17%;
+    display: block;
+}
+.field input{
+    display: block;
+    margin-left: 17%;
+    height: 30px;
+    width: 500px;
+    font-size: 25px;
+}
+.field input:focus, .field textarea:focus , .field select:focus{
+    background-color: white;
+}
+
+/* Botões */
+button {
+    font-size: 1em;
+    background: #17252A;
+    color: white;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    height: 40px;
+    width: 100px;
+}
+button:hover{
+    background-color: darkgray;
+}
+.button{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
